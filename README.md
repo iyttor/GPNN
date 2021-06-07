@@ -1,4 +1,5 @@
 # GPNN
+Generative Patch-Nearest-Neighbor
 
 ### Pytorch implementation of the paper: "[Drop the GAN: In Defense of Patches Nearest Neighbors as Single Image Generative Models](https://arxiv.org/pdf/2103.15545v1.pdf)"
 
