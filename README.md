@@ -7,26 +7,26 @@ With GPNN, you can generate a random sample from a given image in few seconds. F
 
 ![](imgs/samples.png)
 
-## GPNN's Applications
+## GPNN's Other Applications
 GPNN can perform many other tasks, such as image generation, conditional inpainting, structural analogies, image retargeting, collage, and more. Currently, this implementation supports only the first three tasks. 
   
  
 ## Code
-### Install Dependancies
+### Install Dependencies
 ```
 python -m pip install -r requirements.txt
 ```
 This code will run on cuda gpu if available.
 Running on cpu is by specifying '--not_cuda'.
 
-### Memory and Speed issues
-If running this implementation on your machine is too exhausting, or you want to run this method as quick as possible, you may:
+### Memory and Speed
+If running this code on your machine is too exhausting, or you want to get quick results, you may:
 - Generate smaller image by specifying '--out_size \<int\>'
-- Use very fast approximate-nearest-neighbor method ([faiss](https://github.com/facebookresearch/faiss/blob/master/INSTALL.md)), by specifying '--faiss'.
+- Use very fast approximate-nearest-neighbor method ([faiss](https://github.com/facebookresearch/faiss/blob/master/INSTALL.md)), by specifying '--faiss'. Install faiss by the following:
 ```
 python -m pip install faiss-gpu
 ```
-> Notice that this method is sometimes different from the normalized distance matrix presented in the original paper.
+> Notice that this method is different from the normalized distance matrix presented in the original paper.
 
 ###  Random Sample
 To generate a random sample, run: 
