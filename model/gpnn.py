@@ -175,4 +175,5 @@ def combine_patches(O, patch_size, stride, img_shape):
 	divisor = unfold(input_ones, kernel_size=patch_size, dilation=(1, 1), stride=stride, padding=(0, 0))
 	divisor = fold(divisor, output_size=img_shape[:2], kernel_size=patch_size, stride=stride)
 
+	divisor[divisor == 0] = 1.0
 	return (combined / divisor).squeeze(dim=0).permute(1, 2, 0).cpu().numpy()
