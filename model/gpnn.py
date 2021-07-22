@@ -70,6 +70,7 @@ class gpnn:
 			self.coarse_img = img_read(config['img_b'])
 			self.coarse_img = resize(self.coarse_img, self.x_pyramid[-1].shape)
 		elif config['task'] == 'inpainting':
+			self.coarse_img = self.x_pyramid[-1]
 			mask_img = img_read(config['mask'])
 			self.mask_pyramid = [0] * len(self.x_pyramid)
 			for i in range(len(self.mask_pyramid)):
