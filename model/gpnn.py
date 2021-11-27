@@ -112,9 +112,10 @@ class gpnn:
 		keys = extract_patches(x_scaled, patch_size, stride)
 		values = extract_patches(x, patch_size, stride)
 		if mask is None:
-			dist = compute_distances(queries, keys)
+			dist = torch.cdist(queries.view(len(queries), -1), keys.view(len(keys), -1))
 		else:
-			dist = compute_distances(queries[mask], keys[~mask])
+			m_queries, m_keys = queries[mask], keys[~mask]
+			dist = torch.cdist(m_queries.view(len(m_queries), -1), m_keys.view(len(m_keys), -1))
 		norm_dist = (dist / (torch.min(dist, dim=0)[0] + alpha))  # compute_normalized_scores
 		NNs = torch.argmin(norm_dist, dim=1)  # find_NNs
 		if mask is None:
